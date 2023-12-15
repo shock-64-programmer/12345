@@ -1,0 +1,132 @@
+
+Задание 1
+
+
+package main
+
+import "fmt"
+
+func main() {
+    fmt.Println("Hello world!")
+}
+
+
+
+Задание 2
+
+
+package main
+
+import "fmt"
+
+type Pair struct {
+    a, b int
+}
+
+func (p Pair) calcSum() Pair {
+    return Pair{p.a + p.b, p.a + p.b}
+}
+
+func main() {
+    p := Pair{3, 4}
+    sum := p.calcSum()
+    fmt.Println("Original Pair:", p)
+    fmt.Println("Sum Pair:", sum)
+}
+
+
+Задание 3
+
+
+package main
+
+import "fmt"
+
+type Pair struct {
+    a, b int
+}
+
+func (p Pair) calcSum(a, b, c int) {
+    newPair := Pair{p.a, p.b}
+    newPair.b = c
+    fmt.Printf("Original Pair: %v\n", p)
+    fmt.Printf("New Pair: %v\n", newPair)
+}
+
+func main() {
+    p := Pair{3, 4}
+    p.calcSum(1, 2, 5)
+}
+
+
+Задание 4
+
+
+
+package main
+
+import "fmt"
+
+type MyStruct struct {
+	id   int
+	name string
+}
+
+func (ms *MyStruct) Name() string {
+	return ms.name
+}
+
+func (ms *MyStruct) Id() int {
+	return ms.id
+}
+
+func NewMyStruct(name string, id int) *MyStruct {
+	return &MyStruct{id: id, name: name}
+}
+
+func main() {
+	ms := NewMyStruct("John", 123)
+	fmt.Println("Name:", ms.Name())
+	fmt.Println("ID:", ms.Id())
+}
+
+
+
+Задание 5 
+
+
+package main
+
+import "fmt"
+
+type MyStruct struct {
+	id    int
+	name  string
+	Value int
+}
+
+func (ms *MyStruct) Name() string {
+	return ms.name
+}
+
+func (ms *MyStruct) Id() int {
+	return ms.id
+}
+
+func (ms *MyStruct) ChangeValue(newValue int) {
+	ms.Value = newValue
+}
+
+func NewMyStruct(name string, id int) *MyStruct {
+	return &MyStruct{id: id, name: name}
+}
+
+func main() {
+	ms := NewMyStruct("John", 123)
+	fmt.Println("Name:", ms.Name())
+	fmt.Println("ID:", ms.Id())
+	fmt.Println("Value:", ms.Value)
+	ms.ChangeValue(456)
+	fmt.Println("New Value:", ms.Value)
+}
+
